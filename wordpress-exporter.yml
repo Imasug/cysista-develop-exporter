@@ -7,9 +7,10 @@ metadata:
     app: wordpress-exporter
 spec:
   volumes:
-    persistentVolumeClaim:
-      claimName: wordpress
-      readOnly: true
+    - name: wordpress
+      persistentVolumeClaim:
+        claimName: wordpress
+        readOnly: true
   containers:
     - name: wordpress-exporter
       image: imasug/disk-usage-exporter
