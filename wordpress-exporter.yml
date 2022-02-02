@@ -6,8 +6,15 @@ metadata:
   labels:
     app: wordpress-exporter
 spec:
+  volumes:
+    persistentVolumeClaim:
+      claimName: wordpress
+      readOnly: true
   containers:
     - name: wordpress-exporter
       image: imasug/disk-usage-exporter
       args:
-        - /tmp
+        - /data/wordpress
+      volumeMounts:
+        name: wordpress
+        mountPath: /data/wordpress
