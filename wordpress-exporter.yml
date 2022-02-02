@@ -16,5 +16,5 @@ spec:
       args:
         - /data/wordpress
       volumeMounts:
-        name: wordpress
-        mountPath: /data/wordpress
+        - name: wordpress
+          mountPath: /data/wordpress
